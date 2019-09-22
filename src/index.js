@@ -1,9 +1,21 @@
 import * as THREE from 'three'
+import * as CANNON from 'cannon'
 
 import { RandomEnvironmentEntity } from './environment'
 import { Player } from './player'
 import { Entity } from './entity'
 import { CameraEntity } from './camera';
+
+
+// --------------------------------------------------------------------------------
+
+var date = new Date();
+var n = date.getTime(); 
+
+// --------------------------------------------------------------------------------
+
+var world = new CANNON.World();
+world.gravity.set(0, -9.82, 0); // m/s²
 
 // --------------------------------------------------------------------------------
 
@@ -26,23 +38,34 @@ entities.push(player)
 
 for(let n=0;n<100;n++)
 {
-  entities.push(new Entity(scene))
+  entities.push(new Entity(scene, world))
 }
 
-entities.push(new RandomEnvironmentEntity(scene))
+entities.push(new RandomEnvironmentEntity(scene, world))
 
 var camera = new CameraEntity(player.mesh)
 entities.push(camera)
 
 // --------------------------------------------------------------------------------
 
+var fixedTimeStep = 1.0 / 60.0; // seconds
+var maxSubSteps = 300;
+
+// Start the simulation loop
+var lastTime = date.getTime();
+
 var animate = function () {
   requestAnimationFrame(animate);
+
+  var dt = (date.getTime() - lastTime) / 1000;
+  world.step(fixedTimeStep, dt, maxSubSteps);
+  // console.log("Sphere z position: " + sphereBody.position.z);
 
   for (let e of entities) {
     e.update();
   }
   renderer.render(scene, camera.camera);
+  lastTime = date.getTime();
 };
 
 animate();

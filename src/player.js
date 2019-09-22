@@ -16,7 +16,7 @@ class Player {
 
   reset() {
     this.velocity = 0.0
-    this.mesh.rotation.y = Math.PI;
+    // this.mesh.rotation.y = Math.PI;
     this.mesh.position.x = 0.0
     this.mesh.position.y = 2.0
     this.mesh.position.z = 0.0
