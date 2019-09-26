@@ -12,7 +12,7 @@ class Player {
     this.geometry = new THREE.BoxGeometry(2, 1, 2)
     this.material = new THREE.MeshPhysicalMaterial({ color: 0xff0000 })
     this.mesh = new THREE.Mesh(this.geometry, this.material)
-
+    this.mesh.castShadow = true
     this.maxvelocity = 0.5
     this.reset()
     scene.add(this.mesh)
@@ -29,7 +29,7 @@ class Player {
     this.velocity = 0.0
     // this.mesh.rotation.y = Math.PI;
     this.mesh.position.x = 0.0
-    this.mesh.position.y = 0.5
+    this.mesh.position.y = 0.75
     this.mesh.position.z = 0.0
   }
 
