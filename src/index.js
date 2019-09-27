@@ -1,7 +1,7 @@
 import * as THREE from 'three'
 import * as CANNON from 'cannon'
 
-import { FlatEnvironment } from './environment'
+import { NaturalEnvironment } from './environment'
 import { Player } from './player'
 import { Entity, Obstacle } from './entity'
 import { CameraEntity } from './camera';
@@ -75,11 +75,11 @@ for(let n=0;n<100;n++)
 
 for(let n=0;n<5;n++)
 {
-  // entities.push(new Obstacle(scene, world))
+  entities.push(new Obstacle(scene, world))
 }
 
 
-entities.push(new FlatEnvironment(scene, world))
+entities.push(new NaturalEnvironment(scene, world))
 
 var camera = new CameraEntity(player.mesh)
 entities.push(camera)

@@ -28,7 +28,7 @@ class Entity {
     this.mesh.rotation.x = this.mesh.rotation.y = this.mesh.rotation.z = 0;
     
     this.mesh.position.x = (Math.random() * 20) - 10;
-    this.mesh.position.y = (Math.random() * 10);
+    this.mesh.position.y = (Math.random() * 10) + 10;
     this.mesh.position.z = (Math.random() * 20) - 10;
   }
 

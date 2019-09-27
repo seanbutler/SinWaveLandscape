@@ -29,7 +29,7 @@ class Player {
     this.velocity = 0.0
     // this.mesh.rotation.y = Math.PI;
     this.mesh.position.x = 0.0
-    this.mesh.position.y = 0.75
+    this.mesh.position.y = 5.0
     this.mesh.position.z = 0.0
   }
 
@@ -54,7 +54,7 @@ class Player {
         this.velocity = 0.0
       }
     }
-    this.mesh.translateZ(this.velocity)    // this.position = this.position + this.velocity
+    this.mesh.translateZ(this.velocity)
 
     this.body.position.x = this.mesh.position.x
     this.body.position.y = this.mesh.position.y
