@@ -58,7 +58,6 @@ light.shadow.camera.fov = 30;
 light.shadowMapBias = 0.0039;
 light.shadowMapDarkness = 0.75;
 
-
 light.shadow.mapSize.width = SHADOW_MAP_WIDTH;
 light.shadow.mapSize.height = SHADOW_MAP_HEIGHT;
 
@@ -68,7 +67,7 @@ let entities = []
 let player = new Player(scene, world)
 entities.push(player)
 
-for(let n=0;n<100;n++)
+for(let n=0;n<50;n++)
 {
   entities.push(new Entity(scene, world))
 }
@@ -77,7 +76,6 @@ for(let n=0;n<5;n++)
 {
   entities.push(new Obstacle(scene, world))
 }
-
 
 entities.push(new NaturalEnvironment(scene, world))
 
@@ -88,8 +86,6 @@ entities.push(camera)
 
 var fixedTimeStep = 1.0 / 60.0; // seconds
 var maxSubSteps = 300;
-
-// Start the simulation loop
 var lastTime = date.getTime();
 
 var animate = function () {
@@ -97,7 +93,6 @@ var animate = function () {
 
   var dt = (date.getTime() - lastTime) / 1000;
   world.step(fixedTimeStep, dt, maxSubSteps);
-  // console.log("Sphere z position: " + sphereBody.position.z);
 
   for (let e of entities) {
     e.update();

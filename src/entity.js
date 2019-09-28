@@ -42,8 +42,6 @@ class Entity {
   }
 }
 
-
-
 class Obstacle {
   constructor(scene, world) {
     this.geometry = new THREE.BoxGeometry(10, 10, 10)
@@ -54,7 +52,7 @@ class Obstacle {
     this.reset()
 
     this.body = new CANNON.Body({
-       mass: 0, // kg
+       mass: 500, // kg
        position: new CANNON.Vec3(this.mesh.position.x, this.mesh.position.y, this.mesh.position.z), // m
        shape: new CANNON.Box(new CANNON.Vec3(5, 5, 5))
       })
@@ -66,7 +64,7 @@ class Obstacle {
   reset() {
     this.mesh.scale.x = this.mesh.scale.y = this.mesh.scale.z = 1.0;
     this.mesh.position.x = (Math.random() * 50) - 25;
-    this.mesh.position.y = 5;
+    this.mesh.position.y = 25;
     this.mesh.position.z = (Math.random() * 50) - 25;
   }
 

@@ -46,7 +46,7 @@ class FlatEnvironment {
   }
 }
 
-
+// --------------------------------------------------------------------------------
 
 class NaturalEnvironment {
   constructor(sc, world) {
@@ -71,7 +71,6 @@ class NaturalEnvironment {
 
     this.geometry = new THREE.Geometry();
     this.body = new CANNON.Body({ mass: 0 });
-
 
     var v0 = new CANNON.Vec3();
     var v1 = new CANNON.Vec3();
@@ -117,8 +116,6 @@ class NaturalEnvironment {
   }
 
   reset() {
-
-
     this.mesh.position.x = this.body.position.x = -32;
     this.mesh.position.y = this.body.position.y = 0;
     this.mesh.position.z = this.body.position.z = 32;
@@ -127,8 +124,6 @@ class NaturalEnvironment {
   update() {
   }
 }
-
-
 
 // --------------------------------------------------------------------------------
 
