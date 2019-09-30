@@ -69,7 +69,7 @@ entities.push(player)
 
 for(let n=0;n<50;n++)
 {
-  entities.push(new Entity(scene, world))
+  // entities.push(new Entity(scene, world))
 }
 
 for(let n=0;n<5;n++)
