@@ -60,7 +60,7 @@ class NaturalEnvironment {
     for (var i = 0; i < sizeX; i++) {
         matrix.push([]);
         for (var j = 0; j < sizeY; j++) {
-            var height = Math.cos(i / sizeX * Math.PI * 5) * Math.cos(j/sizeY * Math.PI * 5) * 2 + 2;
+            var height = 2.0 * Math.cos(i / sizeX * Math.PI * 5) * Math.cos(j/sizeY * Math.PI * 5) * 2 + 2;
             matrix[i].push(height);
         }
     }

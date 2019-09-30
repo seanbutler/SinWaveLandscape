@@ -37,8 +37,9 @@ class Player {
   }
 
   update() {
-    this.userForce = new CANNON.Vec3(0.0, 0.0, 0.0)
- 
+    this.driveForce = new CANNON.Vec3(0.0, 0.0, 0.0)
+    this.jumpForce = new CANNON.Vec3(0.0, 0.0, 0.0)
+
     if (IsKeyDown(65)) {
       this.mesh.rotation.y += 0.02;
     }
@@ -51,28 +52,34 @@ class Player {
       rotMatrix.extractRotation(this.mesh.matrix)
       var direction = new THREE.Vector3( 0, 0, 1 )
       direction.applyMatrix4(rotMatrix)
-      // var origin = this.mesh.position
-      // var length = 10
-      // var color = 0xff0000
-      // var arrowHelper = new THREE.ArrowHelper( direction, origin, length, color )
-      // this.scene.add(arrowHelper)
-      this.userForce = direction.normalize().multiplyScalar(10)
+
+      this.driveForce = direction.normalize().multiplyScalar(10)
     }
     else if (IsKeyDown(83)) {
-      // this.mesh.quaternion.x
+      var rotMatrix = new THREE.Matrix4()
+      rotMatrix.extractRotation(this.mesh.matrix)
+      var direction = new THREE.Vector3( 0, 0, -1 )
+      direction.applyMatrix4(rotMatrix)
 
-      // let inputForce = new CANNON.Vec3(0.0, 0.0, -100)
-      // let myRotation = this.mesh.rotation;
-      // this.userForce = inputForce.mult(myRotation)
+      this.driveForce = direction.normalize().multiplyScalar(10)
     }
+    
+    if (IsKeyDown(32)) {
+      var rotMatrix = new THREE.Matrix4()
+      rotMatrix.extractRotation(this.mesh.matrix)
+      var direction = new THREE.Vector3( 0, 1, 0 )
+      direction.applyMatrix4(rotMatrix)
 
+      this.jumpForce = direction.normalize().multiplyScalar(50)
+    }
     let center = this.body.pointToWorldFrame(new CANNON.Vec3())
     // let center = new CANNON.Vec3(0, 0, 0)
     
     this.mesh.position.copy(this.body.position)
 
     // this.body.applyLocalForce(this.userForce, center)
-    this.body.applyForce(this.userForce, center)
+    this.body.applyForce(this.driveForce, center)
+    this.body.applyForce(this.jumpForce, center)
 
     if(this.body.quaternion){
         // this.mesh.quaternion.copy(this.body.quaternion);

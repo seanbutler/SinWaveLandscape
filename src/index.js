@@ -69,7 +69,7 @@ entities.push(player)
 
 for(let n=0;n<50;n++)
 {
-  // entities.push(new Entity(scene, world))
+  entities.push(new Entity(scene, world))
 }
 
 for(let n=0;n<5;n++)
@@ -84,7 +84,7 @@ entities.push(camera)
 
 // --------------------------------------------------------------------------------
 
-var fixedTimeStep = 1.0 / 60.0; // seconds
+var fixedTimeStep = 1.0 / 30.0; // seconds
 var maxSubSteps = 300;
 var lastTime = date.getTime();
 
