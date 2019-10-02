@@ -54,19 +54,49 @@ class NaturalEnvironment {
 
     // Create a heightfield
     var matrix = [];
-    var sizeX = 64,
-        sizeY = 64;
+    var sizeX = 128,
+        sizeY = 128;
+
+
+    var scale1 = Math.round(Math.random() * 2);
+    var scale2 = Math.round(Math.random() * 4);
+    var scale3 = Math.round(Math.random() * 8);
+    var scale4 = Math.round(Math.random() * 16);
+    var scale5 = Math.round(Math.random() * 32);
+    var scale6 = Math.round(Math.random() * 64);
+
+    console.log(scale1, scale2, scale3, scale4, scale5, scale6)
 
     for (var i = 0; i < sizeX; i++) {
         matrix.push([]);
         for (var j = 0; j < sizeY; j++) {
-            var height = 2.0 * Math.cos(i / sizeX * Math.PI * 5) * Math.cos(j/sizeY * Math.PI * 5) * 2 + 2;
-            matrix[i].push(height);
-        }
+          var height = 0 
+
+          height += Math.cos(i / sizeX * Math.PI * scale1) * Math.cos(j/sizeY * Math.PI * scale2) * 32;
+          height += Math.cos(i / sizeX * Math.PI * scale2) * Math.cos(j/sizeY * Math.PI * scale3) * 16;
+          height += Math.cos(i / sizeX * Math.PI * scale3) * Math.cos(j/sizeY * Math.PI * scale4) * 8;
+          height += Math.cos(i / sizeX * Math.PI * scale4) * Math.cos(j/sizeY * Math.PI * scale5) * 4;
+          height += Math.cos(i / sizeX * Math.PI * scale5) * Math.cos(j/sizeY * Math.PI * scale6) * 2;
+          height += Math.cos(i / sizeX * Math.PI * scale6) * Math.cos(j/sizeY * Math.PI * scale1) * 1;
+
+          height += Math.cos(i / sizeX * Math.PI * scale1) * Math.cos(j/sizeY * Math.PI * scale1) * 32;
+          height += Math.cos(i / sizeX * Math.PI * scale2) * Math.cos(j/sizeY * Math.PI * scale2) * 16;
+          height += Math.cos(i / sizeX * Math.PI * scale3) * Math.cos(j/sizeY * Math.PI * scale3) * 8;
+          height += Math.cos(i / sizeX * Math.PI * scale4) * Math.cos(j/sizeY * Math.PI * scale4) * 4;
+          height += Math.cos(i / sizeX * Math.PI * scale5) * Math.cos(j/sizeY * Math.PI * scale5) * 2;
+          height += Math.cos(i / sizeX * Math.PI * scale6) * Math.cos(j/sizeY * Math.PI * scale6) * 1;
+
+
+          if ( height > 0.0 ) 
+            matrix[i].push(height); 
+          else 
+            matrix[i].push(-1);
+
+        } 
     }
 
     this.shape = new CANNON.Heightfield(matrix, {
-        elementSize: 100 / sizeX
+        elementSize: 512 / sizeX
     });
 
     this.geometry = new THREE.Geometry();

@@ -31,9 +31,9 @@ class Player {
   reset() {
     this.velocity = 0.0
     // this.mesh.rotation.y = Math.PI;
-    this.mesh.position.x = Math.random() - 0.5
-    this.mesh.position.y = 5.0
-    this.mesh.position.z = Math.random() * 0.5
+    this.mesh.position.x = Math.random() * -32
+    this.mesh.position.y = 32.0
+    this.mesh.position.z = Math.random() * -32
   }
 
   update() {
