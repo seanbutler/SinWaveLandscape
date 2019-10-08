@@ -1,6 +1,7 @@
 import * as THREE from 'three'
 import * as CANNON from 'cannon'
 
+
 import { NaturalEnvironment } from './environment'
 import { Player } from './player'
 import { Entity, Obstacle } from './entity'
