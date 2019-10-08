@@ -1,15 +1,14 @@
-# 🚀 Welcome to your new awesome project!
+# Sin Wave Landscape
 
-This project has been created using **webpack scaffold**, you can now run
+stacked sine waves to create fun slopey landscape.
+reload to get a new one.
 
-```
-npm run build
-```
+## credits go to...
+ - threejs
+ - cannonjs
+ - webpack
+ - npm
+ 
+live demo is here:
 
-or
-
-```
-yarn build
-```
-
-to bundle your application
+ - http://seanbutler.github.io/SinWaveLandscape/dist
