@@ -1,6 +1,6 @@
 # Sin Wave Landscape
 
-stacked sine waves to create fun slopey landscape.
+stacked sine waves to create fun slopey landscape. turns out from inside the landscape this looks pretty natural.
 reload to get a new one.
 
 ## credits go to...
